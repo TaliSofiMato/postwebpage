@@ -1,12 +1,18 @@
 const showComment = async (event) => {
   let comment = await getcommentsFromDatabase(event.target.id);
   let parent = event.target.parentElement
-
+  let shownComments = parent.querySelectorAll('.shown')
+      if (parent.querySelectorAll('.shown').length){
+        shownComments.forEach((com) => {
+          com.remove()
+        })
+      }else{
     const renderComment = (commentObj) => {
       const newComment = `<div class='shown'>${commentObj.body}</div>`
         parent.innerHTML = parent.innerHTML + newComment
     }
     comment.forEach(renderComment)
+  }
 }
 
 
