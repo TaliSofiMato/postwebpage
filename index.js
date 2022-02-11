@@ -13,7 +13,6 @@ const showComment = async (event) => {
         com.style.display = 'none'
       })
     }
-    
   } else {
     event.target.innerText = 'Hide Comments'
     const renderComment = (commentObj) => {
@@ -25,7 +24,6 @@ const showComment = async (event) => {
   }
 }
 
-
 const app = async () => {
   let post = await getpostFromDatabase();
 
@@ -35,5 +33,6 @@ const app = async () => {
     data.innerHTML = data.innerHTML + newPost
   }
   post.forEach(renderPost)
+
 }
 app()
