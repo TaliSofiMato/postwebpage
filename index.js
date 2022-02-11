@@ -2,10 +2,12 @@ const showComment = async (event) => {
   let parent = event.target.parentElement
   let shownComments = parent.querySelectorAll('.shown')
   if (parent.querySelectorAll('.shown').length) {
+    event.target.innerText = 'Show Comments'
     shownComments.forEach((com) => {
       com.remove()
     })
   } else {
+    event.target.innerText = 'Hide Comments'
     const renderComment = (commentObj) => {
       const newComment = `<div class='shown'>${commentObj.body}</div>`
       parent.innerHTML = parent.innerHTML + newComment
